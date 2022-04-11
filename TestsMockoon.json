@@ -1,0 +1,231 @@
+{
+  "uuid": "bf3e7efa-7e9a-43d5-94ea-a678c567540e",
+  "lastMigration": 19,
+  "name": "TestsMockoon",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3000,
+  "hostname": "0.0.0.0",
+  "routes": [
+    {
+      "uuid": "cab4d175-36cd-4025-b22a-aabdb7e608ef",
+      "documentation": "Fetch a task list",
+      "method": "get",
+      "endpoint": "tasks/",
+      "responses": [
+        {
+          "uuid": "f36b67a4-1a50-444e-9335-6091518d0265",
+          "body": "[\n  {\n    \"description\": \"Comprar pan\",\n    \"done\": false,\n    \"id\":0\n  },\n  {\n    \"description\": \"Pasea-lo can\",\n    \"done\": false,\n    \"id\":1\n  },\n  {\n    \"description\": \"Cambiar el agua al canario\",\n    \"done\": true,\n    \"id\":2\n  },\n  {\n    \"description\": \"Llamar a Ambrosio\",\n    \"done\": true,\n    \"id\":3\n  },\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "8c88bd2d-d09c-4ebe-bcef-957188cbab6b",
+          "body": "<h1>Algo ha salido realmente mal</h1>",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "text/html"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "ae3ff84a-a737-4b38-801b-177a9e563f6d",
+      "documentation": "Fetchs task with :id",
+      "method": "get",
+      "endpoint": "task/:id",
+      "responses": [
+        {
+          "uuid": "028340d5-7725-4f4f-9f78-c85002b1e976",
+          "body": "{\n  \"description\": \"Llamar a Ambrosio\",\n  \"done\": true,\n  \"id\":3\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "e4b6350b-50b2-44cd-9f28-d0b70b2138d9",
+          "body": "<404>No se ha encontrado la tarea con ID {{urlParam 'paramName'}}</404>",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "text/html"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "b37d92ce-0be0-423c-b237-28c2e9efa5f2",
+          "body": "<h1>Algo ha salido realmente mal</h1>",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "text/html"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "2f8669f1-2db1-4ee1-b613-9f270ee14e8e",
+          "body": "<h1>You must provide a id: /task/{id_number}</h1>",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "text/html"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "ce61b972-209d-4662-ab36-3042d1d58aa6",
+      "documentation": "Send a new task to backend",
+      "method": "post",
+      "endpoint": "task/",
+      "responses": [
+        {
+          "uuid": "df1275a7-e631-42e2-b9a1-81ccf6898d9d",
+          "body": "16788901",
+          "latency": 0,
+          "statusCode": 201,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "a327194c-a6b7-4597-ae5b-4dc117fe8561",
+          "body": "<h1>You mult provide a JSON with \"description\" and \"done\" properties.</h1>",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "text/html"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "5b02b0ef-f1e8-4eb5-ba5b-fff000717b67",
+          "body": "<h1>Algo ha salido realmente mal</h1>",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "text/html"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": true
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ]
+}
